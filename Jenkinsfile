@@ -6,5 +6,8 @@ pipeline{
                 echo 'hello world!'
             }
         }
+        stage('build'){
+            bat "npm install"
+        }
     }
 }
