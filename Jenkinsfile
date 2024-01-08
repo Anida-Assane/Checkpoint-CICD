@@ -28,9 +28,9 @@ pipeline {
         stage('archivage artefact sur nexus') {
             steps {
                 script{
-                zip archive: true
+                zip archive: true,
                 dir: ANGULAR_PROJECT_PATH ,
-                glob: ''
+                glob: '',
                 zipFile: 'angular${BUILD_NUMBER}.zip'
                 }
                 
