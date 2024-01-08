@@ -5,6 +5,7 @@ pipeline{
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "127.0.0.1:8081"
         NEXUS_REPOSITORY = "checkpoin-cicd"
+        ANGULAR_PROJECT_PATH ="${WORKSPACE}"
         NEXUS_CREDENTIAL_ID = "nexusCredential"
         ARTIFACT_VERSION = "${BUILD_NUMBER}"
     }
@@ -35,7 +36,7 @@ pipeline{
                             [
                                 artifactId: "angular-app",  // Update with your Angular project's artifactId
                                 classifier: '',
-                                file: artifactPath,  // Update with your Angular project's artifact path
+                                file: "${ANGULAR_PROJECT_PATH}/dist/angular-app/*.tar.gz",  // Update with your Angular project's artifact path
                                 type: 'tar.gz'
                             ]
                         ]
