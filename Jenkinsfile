@@ -44,7 +44,7 @@ pipeline {
                         [
                             artifactId: "angular",
                             classifier: '',
-                            file: angular${BUILD_NUMBER}.zip,
+                            file: angular.zip,
                             type: 'zip'
                         ]
                     ]
