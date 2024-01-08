@@ -8,7 +8,7 @@ pipeline {
         NEXUS_REPOSITORY = "checkpoin-cicd"
         ANGULAR_PROJECT_PATH = "C:/Users/anida/AppData/Local/Jenkins/.jenkins/workspace/checkpoint-cicd/dist"
         NEXUS_CREDENTIAL_ID = "nexusCredential"
-        ARTIFACT_VERSION = "${env.BUILD_NUMBER}"
+        ARTIFACT_VERSION = "${BUILD_NUMBER}"
     }
 
     stages {
@@ -28,7 +28,10 @@ pipeline {
         stage('archivage artefact sur nexus') {
             steps {
                 script{
-               
+                zip archive: true,
+                dir: ANGULAR_PROJECT_PATH ,
+                glob: '',
+                zipFile: "angular-${BUILD_NUMBER}.zip'
                 nexusArtifactUploader(
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
@@ -41,7 +44,7 @@ pipeline {
                         [
                             artifactId: "angular",
                             classifier: '',
-                            file: "angular${BUILD-NUMBER}.zip",
+                            file: "angular-${BUILD_NUMBER}.zip",
                             type: 'zip'
                         ]
                     ]
