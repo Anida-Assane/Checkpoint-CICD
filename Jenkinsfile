@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script{
                     filesByGlob = findFiles(glob:"${ANGULAR_PROJECT_PATH}/dist/**")
-                artifactPath = filesByGlob[0].path
+                artifactPath = filesByGlob[0].path.replaceAll('\\\\', '/')
 
                 nexusArtifactUploader(
                     nexusVersion: NEXUS_VERSION,
