@@ -28,9 +28,9 @@ pipeline {
         stage('archivage artefact sur nexus') {
             steps {
                 script{
+                filesByGlob = findFiles(glob: "${ANGULAR_PROJECT_PATH}");
+                artifactPath = filesByGlob[0].path;
                 nexusArtifactUploader(
-                    filesByGlob = findFiles(glob: "${ANGULAR_PROJECT_PATH}");
-                    artifactPath = filesByGlob[0].path;
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
                     nexusUrl: NEXUS_URL,
