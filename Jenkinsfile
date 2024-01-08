@@ -24,6 +24,8 @@ pipeline{
         }
         stage('archivage artefact sur nexus'){
             steps{
+                filesByGlob = findFiles(glob:"${ANGULAR_PROJECT_PATH}/dist/**");
+                artifactPath = filesByGlob[0].path;
                 nexusArtifactUploader(
                         nexusVersion: NEXUS_VERSION,
                         protocol: NEXUS_PROTOCOL,
@@ -36,8 +38,8 @@ pipeline{
                             [
                                 artifactId: "angular-app",  // Update with your Angular project's artifactId
                                 classifier: '',
-                                file: "${ANGULAR_PROJECT_PATH}/dist/angular-app/*",  // Update with your Angular project's artifact path
-                                type: 'tar.gz'
+                                file: artifactPath ,  // Update with your Angular project's artifact path
+                                type: 'zip'
                             ]
                         ]
                     )
