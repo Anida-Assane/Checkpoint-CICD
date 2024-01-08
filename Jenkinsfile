@@ -27,7 +27,8 @@ pipeline {
 
         stage('archivage artefact sur nexus') {
             steps {
-                filesByGlob = findFiles(glob:"${ANGULAR_PROJECT_PATH}/dist/**")
+                script{
+                    filesByGlob = findFiles(glob:"${ANGULAR_PROJECT_PATH}/dist/**")
                 artifactPath = filesByGlob[0].path
 
                 nexusArtifactUploader(
@@ -47,6 +48,9 @@ pipeline {
                         ]
                     ]
                 )
+
+                }
+                
             }
         }
     }
