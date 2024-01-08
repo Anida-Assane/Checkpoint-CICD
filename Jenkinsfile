@@ -32,13 +32,13 @@ pipeline {
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
                     nexusUrl: NEXUS_URL,
-                    groupId: "",
+                    groupId: "com.example",
                     version: ARTIFACT_VERSION,
                     repository: NEXUS_REPOSITORY,
                     credentialsId: NEXUS_CREDENTIAL_ID,
                     artifacts: [
                         [
-                            artifactId: "",
+                            artifactId: "angular-app",
                             classifier: '',
                             file: ANGULAR_PROJECT_PATH,
                             type: 'zip'
