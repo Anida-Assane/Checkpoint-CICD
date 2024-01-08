@@ -28,10 +28,7 @@ pipeline {
         stage('archivage artefact sur nexus') {
             steps {
                 script{
-                zip archive: true,
-                dir: ANGULAR_PROJECT_PATH ,
-                glob: '',
-                zipFile: "angular-${BUILD_NUMBER}.zip"
+               
                 nexusArtifactUploader(
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
@@ -44,7 +41,7 @@ pipeline {
                         [
                             artifactId: "angular",
                             classifier: '',
-                            file: "angular.zip",
+                            file: "angular${BUILD-NUMBER}.zip",
                             type: 'zip'
                         ]
                     ]
