@@ -38,7 +38,7 @@ pipeline {
                     credentialsId: NEXUS_CREDENTIAL_ID,
                     artifacts: [
                         [
-                            artifactId: "angular-app",
+                            artifactId: "angular",
                             classifier: '',
                             file: ANGULAR_PROJECT_PATH,
                             type: 'zip'
