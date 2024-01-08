@@ -8,7 +8,7 @@ pipeline {
         NEXUS_REPOSITORY = "checkpoin-cicd"
         ANGULAR_PROJECT_PATH = "C:/Users/anida/AppData/Local/Jenkins/.jenkins/workspace/checkpoint-cicd/dist"
         NEXUS_CREDENTIAL_ID = "nexusCredential"
-        ARTIFACT_VERSION = "${BUILD_NUMBER}"
+        ARTIFACT_VERSION = "${env.BUILD_NUMBER}"
     }
 
     stages {
