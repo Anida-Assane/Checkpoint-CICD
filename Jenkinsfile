@@ -6,7 +6,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "127.0.0.1:8081"
         NEXUS_REPOSITORY = "checkpoin-cicd"
-        ANGULAR_PROJECT_PATH = "C:/Users/anida/AppData/Local/Jenkins/.jenkins/workspace/checkpoint-cicd"
+        ANGULAR_PROJECT_PATH = "C:/Users/anida/AppData/Local/Jenkins/.jenkins/workspace/checkpoint-cicd/dist"
         NEXUS_CREDENTIAL_ID = "nexusCredential"
         ARTIFACT_VERSION = "${BUILD_NUMBER}"
     }
@@ -28,9 +28,6 @@ pipeline {
         stage('archivage artefact sur nexus') {
             steps {
                 script{
-                filesByGlob = findFiles(glob:"${ANGULAR_PROJECT_PATH}/dist/**")
-                artifactPath = filesByGlob[0].path
-
                 nexusArtifactUploader(
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
@@ -43,7 +40,7 @@ pipeline {
                         [
                             artifactId: "angular-app",
                             classifier: '',
-                            file: artifactPath,
+                            file: ANGULAR_PROJECT_PATH,
                             type: 'zip'
                         ]
                     ]
