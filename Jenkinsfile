@@ -36,7 +36,7 @@ pipeline{
                             [
                                 artifactId: "angular-app",  // Update with your Angular project's artifactId
                                 classifier: '',
-                                file: "${ANGULAR_PROJECT_PATH}/dist/angular-app/*.tar.gz",  // Update with your Angular project's artifact path
+                                file: "${ANGULAR_PROJECT_PATH}/dist/angular-app/*",  // Update with your Angular project's artifact path
                                 type: 'tar.gz'
                             ]
                         ]
