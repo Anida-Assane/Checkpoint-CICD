@@ -40,7 +40,7 @@ pipeline {
                         [
                             artifactId: "angular",
                             classifier: '',
-                            file: "${ANGULAR_PROJECT_PATH}/dist/*",
+                            file: dir("${ANGULAR_PROJECT_PATH}/dist/*"),
                             type: 'zip'
                         ]
                     ]
