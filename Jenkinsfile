@@ -31,7 +31,7 @@ pipeline {
                 zip archive: true,
                 dir: ANGULAR_PROJECT_PATH ,
                 glob: '',
-                zipFile: "angular-${BUILD_NUMBER}.zip'
+                zipFile: "angular-${BUILD_NUMBER}.zip"
                 nexusArtifactUploader(
                     nexusVersion: NEXUS_VERSION,
                     protocol: NEXUS_PROTOCOL,
@@ -53,6 +53,7 @@ pipeline {
                 }
                 
             }
+            
         }
     }
 }
